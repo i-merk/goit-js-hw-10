@@ -4,16 +4,13 @@
 h1:hover,
 h1:focus {
   color: #747bff;
-  
 }
 a:hover,
 a:focus {
   color: #747bff;
   font-size: xx-large;
   font-weight: 800;
-  
 }
-
 
 .nav-list {
   display: block;

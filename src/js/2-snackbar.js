@@ -8,7 +8,6 @@ document.querySelector('.form').addEventListener('submit', function (event) {
   const delay = parseInt(form.elements['delay'].value, 10);
   const state = form.elements['state'].value;
 
-  // Функція для створення промісу
   function createPromise(delay, shouldResolve) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -21,17 +20,16 @@ document.querySelector('.form').addEventListener('submit', function (event) {
     });
   }
 
-  // Вибираємо, виконувати проміс чи відхиляти
   const shouldResolve = state === 'fulfilled';
 
   createPromise(delay, shouldResolve)
-    .then((delay) => {
+    .then(delay => {
       iziToast.success({
         title: 'Success',
         message: `✅ Fulfilled promise in ${delay}ms`,
       });
     })
-    .catch((delay) => {
+    .catch(delay => {
       iziToast.error({
         title: 'Error',
         message: `❌ Rejected promise in ${delay}ms`,
