@@ -3,7 +3,7 @@ import "flatpickr/dist/flatpickr.min.css";
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-// Отримання елементів DOM
+
 const datetimePicker = document.getElementById('datetime-picker');
 const startButton = document.querySelector('[data-start]');
 const daysElement = document.querySelector('[data-days]');
@@ -14,7 +14,7 @@ const secondsElement = document.querySelector('[data-seconds]');
 let userSelectedDate = null;
 let timerId = null;
 
-// Налаштування для flatpickr
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -35,10 +35,10 @@ const options = {
   },
 };
 
-// Ініціалізація flatpickr
+
 flatpickr(datetimePicker, options);
 
-// Обробка натискання кнопки Start
+
 startButton.addEventListener('click', () => {
   if (userSelectedDate) {
     startButton.disabled = true;
@@ -47,7 +47,7 @@ startButton.addEventListener('click', () => {
   }
 });
 
-// Функція запуску таймера
+
 function startTimer(endDate) {
   timerId = setInterval(() => {
     const currentTime = new Date();
@@ -70,7 +70,7 @@ function startTimer(endDate) {
   }, 1000);
 }
 
-// Функція конвертації мілісекунд
+
 function convertMs(ms) {
   const second = 1000;
   const minute = second * 60;
@@ -85,7 +85,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-// Оновлення відображення таймера
+
 function updateTimerDisplay(days, hours, minutes, seconds) {
   daysElement.textContent = addLeadingZero(days);
   hoursElement.textContent = addLeadingZero(hours);
@@ -93,7 +93,7 @@ function updateTimerDisplay(days, hours, minutes, seconds) {
   secondsElement.textContent = addLeadingZero(seconds);
 }
 
-// Додавання провідного нуля
+
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
